@@ -1,0 +1,15 @@
+package com.kosta.persistence;
+
+import java.util.List;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.kosta.vo2.MemberDTO;
+import com.kosta.vo2.ProfileDTO;
+
+public interface ProfileRepository extends PagingAndSortingRepository<ProfileDTO, Long>{
+
+	List<ProfileDTO> findByPname(String pname);
+	List<ProfileDTO> findByCurrentYn(boolean yn);
+	List<ProfileDTO> findByMember(MemberDTO member);
+}

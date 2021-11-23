@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="~{/layout/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="panel panel-default" layout:fragment="content1">
+		<table class="table table-striped table-bordered table-hover">
+			<tr>
+				<td>bno</td>
+				<td>title</td>
+				<td>writer</td>
+				<td>regdate</td>
+			</tr>
+			<tr th:each="board:${blist}">
+				<td>
+					<a th:href="${board.bno}">[[${board.bno}]]</a>
+				</td>
+				<td th:text="${board.title}"></td>
+				<td th:text="${board.writer}"></td>
+				<td th:text="${board.regdate}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

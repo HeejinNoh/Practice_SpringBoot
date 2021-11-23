@@ -1,0 +1,44 @@
+package com.kosta.vo2;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QPDSBoard is a Querydsl query type for PDSBoard
+ */
+@Generated("com.querydsl.codegen.EntitySerializer")
+public class QPDSBoard extends EntityPathBase<PDSBoard> {
+
+    private static final long serialVersionUID = 979721979L;
+
+    public static final QPDSBoard pDSBoard = new QPDSBoard("pDSBoard");
+
+    public final ListPath<PDSFile, QPDSFile> files2 = this.<PDSFile, QPDSFile>createList("files2", PDSFile.class, QPDSFile.class, PathInits.DIRECT2);
+
+    public final NumberPath<Long> pid = createNumber("pid", Long.class);
+
+    public final StringPath pname = createString("pname");
+
+    public final StringPath pwriter = createString("pwriter");
+
+    public QPDSBoard(String variable) {
+        super(PDSBoard.class, forVariable(variable));
+    }
+
+    public QPDSBoard(Path<? extends PDSBoard> path) {
+        super(path.getType(), path.getMetadata());
+    }
+
+    public QPDSBoard(PathMetadata metadata) {
+        super(PDSBoard.class, metadata);
+    }
+
+}
+

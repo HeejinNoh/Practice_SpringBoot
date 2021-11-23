@@ -1,0 +1,14 @@
+package com.kosta.sbproject;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController //@Controller + @ResponseBody
+public class SampleRestController {
+
+	@RequestMapping("/test1")
+	public String test1() {
+		System.out.println("@RestController의 test1()");
+		return
+	}
+}

@@ -1,0 +1,17 @@
+package com.kosta.sbproject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.persistence.PDSBoardRepository;
+
+@SpringBootTest
+public class PDSBoardTest {
+
+	@Autowired
+	PDSBoardRepository boardRepo;
+	
+	public void insertBoard() {
+		
+	}
+}

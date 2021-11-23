@@ -1,0 +1,37 @@
+package com.kosta.sbproject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.persistence.PDSBoardRepository;
+import com.kosta.vo2.PDSBoard;
+import com.kosta.vo2.PDSFile;
+
+@SpringBootTest
+public class PDSBoardTest {
+
+	@Autowired
+	PDSBoardRepository boardRepo;
+	
+	@Test
+	public void insertBoard() {
+		IntStream.rangeClosed(1, 3).forEach(i->{
+			PDSBoard board = new PDSBoard();
+			board.setPname("filename" + i);
+			board.setPwriter("작성자" + i);
+			List<PDSFile> files2 = new ArrayList<>();
+			IntStream.rangeClosed(1, 5).forEach(j->{
+				PDSFile file = new PDSFile();
+				file.setPdsfilename("flower" + j);
+				files2.add(file);
+			});
+			board.setFiles2(files2);
+			boardRepo.save(board);
+		});
+	}
+}

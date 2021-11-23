@@ -1,0 +1,19 @@
+package com.kosta.sbproject.persistence;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import com.kosta.vo.DeptVO;
+
+public interface DeptRepositoy extends CrudRepository<DeptVO, Integer>{
+
+	//JPA규격에 맞는 함수를 정의한다. 대문자 지키기!!
+	Optional<DeptVO> findByDepartmentName(String name);
+	
+	//JPQL(JPA Query Language)
+	@Query("select d from DeptVO d where d.departmentId > ?1 order by d.departmentName")
+	public List<DeptVO> findByDept(Integer deptid);
+}

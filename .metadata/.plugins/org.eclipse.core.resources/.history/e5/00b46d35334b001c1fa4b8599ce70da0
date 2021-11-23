@@ -1,0 +1,35 @@
+package com.kosta.sbproject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.vo2.FreeBoard;
+import com.kosta.vo2.FreeBoardReply;
+
+@SpringBootTest
+public class FreeBoardReplyTest {
+
+	@Autowired
+	FreeBoard boardRepo;
+	
+	@Autowired
+	FreeBoardReply replyRepo;
+//			List<FreeBoardReply> replyList = new ArrayList<>();
+//			IntStream.rangeClosed(1, 5).forEach(i->{
+//				FreeBoardReply reply = FreeBoardReply.builder().reply("댓글내용" + i + ":" + j).replyer("댓글작성자" + i + ":" + j).build();
+//				replyList.add(reply);
+//			});
+	
+	@Test
+	public void insertBoard() {
+		IntStream.rangeClosed(100, 110).forEach(j->{
+			FreeBoard board = FreeBoard.builder().title("board 제목" + j).writer("board 작성자" + j).content("board 내용" + j).build();
+			boardRepo.save(board);
+		});
+	}
+}

@@ -1,0 +1,30 @@
+package com.kosta.sbproject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.vo2.FreeBoard;
+import com.kosta.vo2.FreeBoardReply;
+
+@SpringBootTest
+public class FreeBoardReplyTest {
+
+	@Autowired
+	FreeBoard boardRepo;
+	
+	@Autowired
+	FreeBoardReply replyRepo;
+	
+	@Test
+	public void insertBoardReply() {
+		List<FreeBoardReply> replyList = new ArrayList<>();
+		FreeBoardReply reply = FreeBoardReply.builder().reply("").replyer("").build();
+		
+		
+		FreeBoard board = FreeBoard.builder().title("").writer("").content("").replies(replyList).build();
+	}
+}

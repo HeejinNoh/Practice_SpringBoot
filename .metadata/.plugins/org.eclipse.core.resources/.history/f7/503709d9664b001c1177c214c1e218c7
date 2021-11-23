@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf TEST2</h1>
+	<!-- <h2 th:text="${boardlist}"></h2> --> <!-- 태그 여닫는 중간에 message가 들어감 -->
+	<table border="1">
+		<tr>
+			<td>번호</td>		
+			<td>제목</td>		
+			<td>내용</td>		
+			<td>작성자</td>		
+			<td>작성일</td>		
+			<td>수정일</td>		
+			<td>댓글</td>		
+		</tr>
+		<tr th:each="board:${boardlist}">
+			<td th:utext="${board.bno}"></td>		
+			<td th:text="${board.title}"></td>		
+			<td th:text="${board.content}"></td>		
+			<td th:text="${board.writer}"></td>		
+			<td>[[${board.regdate}]]</td>		
+			<td>[[${board.updatedate}]]</td>		
+			<td>댓글</td>		
+		</tr>
+	</table>
+</body>
+</html>

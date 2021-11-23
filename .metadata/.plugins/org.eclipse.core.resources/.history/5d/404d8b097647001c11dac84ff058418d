@@ -1,0 +1,9 @@
+package com.kosta.sbproject.persistence;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.kosta.vo.BoardVO;
+
+public interface MemberRepository extends CrudRepository<MemberVO, Long>{
+
+}

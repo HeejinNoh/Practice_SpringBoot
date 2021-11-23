@@ -1,0 +1,33 @@
+package com.kosta.sbproject.persistence;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
+import com.kosta.vo.BoardVO;
+
+// 인터페이스 설계. 패키지는 groupid.artifactid에 있거나 하위에 있을 것
+@Repository
+public interface BoardRepository extends PagingAndSortingRepository<BoardVO, Long>{
+	
+	//findBy필드이름: 규격 꼭 지키기
+	List<BoardVO> findByTitle(String title);
+	List<BoardVO> findByWriter(String writer);
+	List<BoardVO> findByContent(String content);
+	
+	List<BoardVO> findByTitleAndWriter(String title, String writer);
+	List<BoardVO> findByTitleOrContent(String title, String content);
+	
+	long countByWriter(String writer);
+	
+	List<BoardVO> findByTitleLike(String title); //여러건이니까 list
+	List<BoardVO> findByTitleContaining(String title);
+	List<BoardVO> findByTitleStartingWith(String title);
+	List<BoardVO> findByTitleEndingWith(String title);
+	
+	List<BoardVO> findByTitleEndingWithAndBnoGreaterThanEqual(String title, Long bno);
+	List<BoardVO> findByTitleEndingWithAndBnoGreaterThanEqualOrderByBnoDesc(String title, Long bno);
+	
+}

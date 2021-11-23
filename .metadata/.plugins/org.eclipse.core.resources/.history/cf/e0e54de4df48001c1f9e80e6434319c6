@@ -1,0 +1,42 @@
+package com.kosta.sbproject;
+
+import java.util.stream.IntStream;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.persistence.MemberReferenceRepository;
+import com.kosta.persistence.ProfileRepository;
+import com.kosta.vo2.MemberDTO;
+import com.kosta.vo2.MemberRole;
+
+@SpringBootTest
+public class MemberProfileTest {
+
+	@Autowired
+	MemberReferenceRepository memberRepo;
+	@Autowired
+	ProfileRepository profileRepo;
+	
+	@Test
+	public void insertProfile() {
+		// hhnn1, hhnn10 두 멤버의 프로파일을 5개씩 넣기
+		
+	}
+	
+	//@Test
+	public void insertMember() {
+		//10건의 member insert
+		IntStream.rangeClosed(1, 10).forEach(i->{
+			MemberDTO m1 = null;
+			if(i>5) {
+				m1 = MemberDTO.builder().mid("hhnn." + i).mname("매니져" + i).mpassword("1234").mrole(MemberRole.MANAGER).build();
+			} else {
+				m1 = MemberDTO.builder().mid("hhnn." + i).mname("일반회원" + i).mpassword("1234").mrole(MemberRole.USER).build();
+			}
+			memberRepo.save(m1);
+		});
+	}
+	
+}

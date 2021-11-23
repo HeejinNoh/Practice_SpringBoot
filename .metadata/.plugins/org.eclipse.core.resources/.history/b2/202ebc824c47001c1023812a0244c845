@@ -1,0 +1,2 @@
+# Tomcat server의 기본port는 8080
+server.port=8888

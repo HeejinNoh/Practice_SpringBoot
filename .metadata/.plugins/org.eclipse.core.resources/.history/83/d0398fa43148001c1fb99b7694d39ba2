@@ -1,0 +1,9 @@
+package com.kosta.vo;
+
+public class DeptVO {
+
+	int department_id;
+	string department_name;
+	int manager_id;
+	int location_id;
+}

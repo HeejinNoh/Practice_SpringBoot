@@ -1,0 +1,52 @@
+package com.kosta.sbproject;
+
+import java.util.stream.IntStream;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.persistence.MemberReferenceRepository;
+import com.kosta.persistence.ProfileRepository;
+import com.kosta.vo2.MemberDTO;
+import com.kosta.vo2.MemberRole;
+import com.kosta.vo2.ProfileDTO;
+
+@SpringBootTest
+public class MemberProfileTest {
+
+	@Autowired
+	MemberReferenceRepository memberRepo;
+	@Autowired
+	ProfileRepository profileRepo;
+	
+	@Test
+	public void insertProfile() {
+		// hhnn.1, hhnn.10 두 멤버의 프로파일을 5개씩 넣기
+		MemberDTO m1 = memberRepo.findById("hhnn.1").get(); //있냐없냐(findbyid>optional) > 쓰려고(get)
+		MemberDTO m10 = memberRepo.findById("hhnn.10").get();
+		IntStream.rangeClosed(1, 5).forEach(i->{
+			ProfileDTO profile = ProfileDTO.builder().pname("face" + i).currentYn(i==5?true:false).member(m1).build();
+			profileRepo.save(profile);
+		});
+		IntStream.rangeClosed(1, 5).forEach(i->{
+			ProfileDTO profile = ProfileDTO.builder().pname("picture" + i).currentYn(i==5?true:false).member(m10).build(); //member 참조
+			profileRepo.save(profile);
+		});
+	}
+	
+	//@Test
+	public void insertMember() {
+		//10건의 member insert
+		IntStream.rangeClosed(1, 10).forEach(i->{
+			MemberDTO m1 = null;
+			if(i>5) {
+				m1 = MemberDTO.builder().mid("hhnn." + i).mname("매니져" + i).mpassword("1234").mrole(MemberRole.MANAGER).build();
+			} else {
+				m1 = MemberDTO.builder().mid("hhnn." + i).mname("일반회원" + i).mpassword("1234").mrole(MemberRole.USER).build();
+			}
+			memberRepo.save(m1);
+		});
+	}
+	
+}

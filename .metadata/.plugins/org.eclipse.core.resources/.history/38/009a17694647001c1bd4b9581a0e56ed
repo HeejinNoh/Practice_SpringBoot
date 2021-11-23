@@ -1,0 +1,11 @@
+package com.kosta.sbproject;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+public class CarVO {
+	String model;
+	int price;
+}

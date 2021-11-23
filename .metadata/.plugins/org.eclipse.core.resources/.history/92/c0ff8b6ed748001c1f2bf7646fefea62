@@ -1,0 +1,16 @@
+package com.kosta.vo2;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+public class MemberDTO {
+
+	String mid;
+	String mpassword;
+	String mname;
+	
+	@Enumerated(EnumType.STRING)
+	MemberRole mrole;
+	
+	
+}

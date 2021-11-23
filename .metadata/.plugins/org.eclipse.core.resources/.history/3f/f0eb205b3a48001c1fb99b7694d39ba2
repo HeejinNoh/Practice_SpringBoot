@@ -1,0 +1,13 @@
+package com.kosta.sbproject.persistence;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.kosta.vo.DeptVO;
+
+public interface DeptRepositoy extends CrudRepository<DeptVO, Integer>{
+
+	//JPA규격에 맞는 함수를 정의한다.
+	List<DeptVO> findbydepartment_name(String name);
+}

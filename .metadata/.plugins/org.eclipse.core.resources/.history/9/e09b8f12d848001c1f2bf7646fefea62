@@ -1,0 +1,13 @@
+package com.kosta.vo2;
+
+import javax.persistence.ManyToOne;
+
+public class ProfileDTO {
+
+	private Long pno;
+	private String fname;
+	private boolean currentYn;
+	
+	@ManyToOne
+	private MemberDTO member;
+}

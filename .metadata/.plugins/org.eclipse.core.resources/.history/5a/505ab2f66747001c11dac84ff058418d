@@ -1,0 +1,26 @@
+package com.kosta.sbproject;
+
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.model.BoardRepository;
+
+@SpringBootTest
+public class BoardTest {
+
+	@Autowired
+	BoardRepository boardRepo;
+	
+	@Test
+	public void test1() {
+		Class<?> bclass = boardRepo.getClass(); // <?> 와일드카드, 아무거나와도 다 괜찮다
+		System.out.println(bclass.getName());
+		Class<?>[] interfs = bclass.getInterfaces(); 
+		Stream.of(interfs).forEach(inter->{
+			System.out.println(inter.getClass().getName());
+		});
+	}
+}

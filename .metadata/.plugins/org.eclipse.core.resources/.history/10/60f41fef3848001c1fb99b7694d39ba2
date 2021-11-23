@@ -1,0 +1,7 @@
+package com.kosta.sbproject.persistence;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface DeptRepositoy extends CrudRepository<DeptVO, ID>{
+
+}

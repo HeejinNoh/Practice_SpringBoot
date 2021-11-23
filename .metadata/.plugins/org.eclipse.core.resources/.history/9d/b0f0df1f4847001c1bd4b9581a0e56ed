@@ -1,0 +1,15 @@
+package com.kosta.sbproject;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class LombokTest {
+
+	@Test //junit으로 test
+	public void test1() {
+		CarVO car = new CarVO();
+		CarVO car2 = new CarVO();
+		
+	}
+}

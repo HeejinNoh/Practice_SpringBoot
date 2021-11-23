@@ -1,0 +1,18 @@
+package com.kosta.vo;
+
+public class MemberVO {
+
+}
+
+/*
+Create table member(
+mid number primary key,
+mpassword varchar2(20),
+mname varchar2(50),
+phone varchar2(20),
+address varchar2(100),
+email  varchar2(20) ,
+regdate timestamp,
+updatedate timestamp
+);
+*/

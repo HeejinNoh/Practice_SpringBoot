@@ -1,0 +1,25 @@
+package com.kosta.vo2;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter @Setter @ToString @Builder
+@non
+public class MemberDTO {
+
+	@Id
+	String mid; //key
+	String mpassword;
+	String mname;
+	
+	@Enumerated(EnumType.STRING)
+	MemberRole mrole;
+	
+	
+}

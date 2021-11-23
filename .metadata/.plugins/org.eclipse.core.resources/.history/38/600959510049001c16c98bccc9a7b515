@@ -1,0 +1,21 @@
+package com.kosta.sbproject;
+
+import java.util.stream.IntStream;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.persistence.PDSBoardRepository;
+
+@SpringBootTest
+public class PDSBoardTest {
+
+	@Autowired
+	PDSBoardRepository boardRepo;
+	
+	public void insertBoard() {
+		IntStream.rangeClosed(1, 3).forEach(i->{
+			PDSBoard board = new PDSBoard();
+		});
+	}
+}

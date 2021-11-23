@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.myclass1 {background-color: orange;}
+.myclass2 {background-color: lightgreen;}
+.myclass3 {background-color: lightgray;}
+.myclass4 {color: red;}
+.myclass5 {color: blue;}
+</style>
+</head>
+<body>
+	<h1>Thymeleaf TEST2</h1>
+	<!-- <h2 th:text="${boardlist}"></h2> --> <!-- 태그 여닫는 중간에 message가 들어감 -->
+	<table border="1" th:with="a='board 작성자105', b=40">
+		<tr class="myclass1">
+			<td>index</td>
+			<td>count</td>
+			<td>size(건수)</td>
+			<td>첫번째/마지막</td>
+			<td>짝수/홀수</td>
+			<td>번호</td>		
+			<td>제목</td>		
+			<td>내용</td>		
+			<td>작성자</td>		
+			<td>작성일</td>		
+			<td>수정일</td>		
+			<td>댓글</td>		
+		</tr>
+		<tr th:each="board,iterState2:${boardlist}" th:class="${iterState2.odd?'myclass2':'myclass3'}"
+			th:classappend="${(iterState2.first or iterState2.last?'myclass4':'') + (iterState2.count==2?'myclass5':'')}">
+			<td th:text="${iterState2.index}"></td>
+			<td th:text="${iterState2.count}"></td>
+			<td th:text="${iterState2.size}"></td>
+			<td th:text="${iterState2.first + '--' + iterState2.last}"></td>
+			<td th:text="${iterState2.odd + '--' + iterState2.even}"></td>
+			<td th:utext="${board.bno}"></td>		
+			<td th:text="${b==board.bno?'찾음':board.title}"></td>		
+			<td th:text="${board.content}"></td>		
+			<td> <!-- th:text="${a==board.writer?'찾음':board.writer}" -->
+				<a href="" th:if="${a==board.writer}">찾은 데이터 수정</a>
+				<p th:unless="${a==board.writer}">[[${board.writer}]]</p>
+			</td>		
+			<td th:text="${#dates.format(board.regdate, 'yyyy/MM/dd')}"></td>
+			<td>[[${#dates.format(board.updatedate, 'yyyy/MM/dd')}]]</td> <!-- 인라인 -->
+			<td th:text="${board.replies.size()}"></td>	
+		</tr>
+	</table>
+</body>
+</html>

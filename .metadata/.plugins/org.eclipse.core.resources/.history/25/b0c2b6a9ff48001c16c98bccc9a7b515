@@ -1,0 +1,5 @@
+package com.kosta.persistence;
+
+public interface PDSBoardRepository {
+
+}

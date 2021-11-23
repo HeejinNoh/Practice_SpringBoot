@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf TEST3</h1>
+	<h2 th:text="${board}">!!ToString으로!!</h2> <!-- board.tostring이 옴 -->
+	<h2 th:utext="${'<b>bno: ' + board.bno + '</b>'}"></h2>
+	<h2 th:text="'title: ' + ${board.title}"></h2>
+	<h2 th:text="${board.content}"></h2>
+	<h2 th:text="${board.writer}"></h2>
+	<h2 th:text="${board.regdate}"></h2>
+	<hr>
+	<h2>[[${board.writer}]]</h2>
+</body>
+</html>

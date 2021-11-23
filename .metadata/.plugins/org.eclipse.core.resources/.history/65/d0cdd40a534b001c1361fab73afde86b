@@ -1,0 +1,14 @@
+package org.kosta.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class SampleController {
+
+	@RequestMapping("/hello")
+	public String test() {
+		System.out.println("hello요청");
+		return "hello";
+	}
+}

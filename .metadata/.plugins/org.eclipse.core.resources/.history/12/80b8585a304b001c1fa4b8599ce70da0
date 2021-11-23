@@ -1,0 +1,17 @@
+package com.kosta.sbproject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.vo2.FreeBoard;
+import com.kosta.vo2.FreeBoardReply;
+
+@SpringBootTest
+public class FreeBoardReplyTest {
+
+	@Autowired
+	FreeBoard boardRepo;
+	
+	@Autowired
+	FreeBoardReply replyRepo;
+}

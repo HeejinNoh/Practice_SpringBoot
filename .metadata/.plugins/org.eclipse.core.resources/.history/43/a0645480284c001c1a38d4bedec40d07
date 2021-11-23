@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="~{/layout/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="panel panel-default" layout:fragment="content1">
+		<form action="">
+			<div class="form-group">
+				<label for="bno">Board Number:</label>
+				<input type="text" class="form-control" id="bno" name="bno" th:value="${board.bno}">
+			</div>
+			<div class="form-group">
+				<label for="title">Title:</label>
+				<input type="text" class="form-control" id="title" name="title" th:value="${board.title}">
+			</div>
+			<div class="form-group">
+				<label for="writer">Writer:</label>
+				<input type="text" class="form-control" id="writer" name="writer" th:value="${board.writer}">
+			</div>
+			<div class="form-group">
+				<label for="regdate">Registration Date:</label>
+				<input type="date" class="form-control" id="regdate" name="regdate" th:value="${#dates.format(board.regdate, 'yyyy-MM-dd')}">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

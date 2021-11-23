@@ -1,0 +1,17 @@
+# Tomcat server의 기본port는 8080
+server.port=8888
+
+# context path: default /
+server.servlet.context-path=/myapp
+
+# JPA설정 : ddl 자동생성, db고유기능사용(yes-false), 실행되는 sql문 보여주기
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.generate-ddl=false
+spring.jpa.show-sql=true
+
+
+
+
+# template를 JSP로 사용하기 (webapp안에서 만들어야함. 경로 이름은 내마음대로!)
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp

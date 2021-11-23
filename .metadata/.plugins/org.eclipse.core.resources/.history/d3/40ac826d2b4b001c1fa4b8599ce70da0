@@ -1,0 +1,23 @@
+package com.kosta.vo2;
+
+import java.sql.Timestamp;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter @Setter @ToString //양방향일때 무한룹에 빠질 수 있음. tostring주의. data에서는 수정불가
+@Entity @Table(name = "tbl_free_replies")
+@EqualsAndHashCode(of="rno")
+public class FreeBoardReply {
+
+	Long rno;
+	String reply;
+	String replyer;
+	Timestamp regdate;
+	Timestamp updatedate;
+}

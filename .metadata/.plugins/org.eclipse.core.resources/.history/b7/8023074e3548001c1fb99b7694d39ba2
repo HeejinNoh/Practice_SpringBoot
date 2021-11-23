@@ -1,0 +1,49 @@
+# Tomcat server의 기본port는 8080
+server.port=8888
+
+# context path: default /
+server.servlet.context-path=/myapp
+
+# JPA설정 : ddl 자동생성(create는 항상 새로시작할때마다 drop & create, update는 새로운건 들어갈때마다 넣기), db고유기능사용(yes-false), 실행되는 sql문 보여주기
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.generate-ddl=false
+spring.jpa.show-sql=true
+
+#DB설정(Oracle)
+#Dialect(방언) :  Hibernate는 DB에 맞게 SQL문을 생성하기 위해 방언을 사용한다.
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost/xe
+spring.datasource.username=hr
+spring.datasource.password=hr
+spring.jpa.database=oracle
+logging.level.org.hibernate=info
+#debug: 수준이 더 높아져 더 상세히 나옴
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect
+
+
+# H2 DB설정
+#embed 로 연결 
+#spring.datasource.url=jdbc:h2:~/test
+#서버로연결 
+#spring.datasource.url=jdbc:h2:tcp://localhost/~/test
+#spring.datasource.username=sa
+#spring.datasource.password=
+#spring.datasource.driverClassName=org.h2.Driver
+
+
+# MySQL설정
+#Dialect(방언) :  Hibernate는 DB에 맞게 SQL문을 생성하기 위해 방언을 사용한다.
+#Ex) oracle: varchar2, MySQL: varchar 등
+#spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
+#spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+#spring.datasource.url=jdbc:mariadb://localhost:3306/test
+#spring.datasource.username=root
+#spring.datasource.password=12345
+#spring.datasource.hikari.maximum-pool-size=5
+#spring.datasource.tomcat.default-auto-commit=false
+#spring.datasource.hikari.auto-commit=false
+
+
+# template를 JSP로 사용하기 (webapp안에서 만들어야함. 경로 이름은 내마음대로!)
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp

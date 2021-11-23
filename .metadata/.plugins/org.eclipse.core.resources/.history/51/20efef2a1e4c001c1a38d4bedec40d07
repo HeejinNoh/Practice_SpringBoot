@@ -1,0 +1,13 @@
+package com.kosta.persistence;
+
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.repository.CrudRepository;
+
+import com.kosta.vo3.WebBoard;
+
+public interface WebBoardRepository extends CrudRepository<WebBoard, Long>, QuerydslPredicateExecutor<WebBoard> {
+
+	//1.default: findAll(), findById(id값)
+	//2. patttern에 맞는 함수정의: findBy속성()..
+	//3. JPQL: @Query, native
+}

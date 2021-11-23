@@ -1,0 +1,54 @@
+package com.kosta.sbproject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.persistence.FreeBoardReplyRepository;
+import com.kosta.persistence.FreeBoardRepository;
+import com.kosta.vo2.FreeBoard;
+import com.kosta.vo2.FreeBoardReply;
+
+@SpringBootTest
+public class FreeBoardReplyTest {
+
+	@Autowired
+	FreeBoardRepository boardRepo;
+	
+	@Autowired
+	FreeBoardReplyRepository replyRepo;
+	
+	@Test
+	public void selectAllBoard() {
+		boardRepo.findAll().forEach(board->{
+			System.out.println(board);
+		});
+	}
+	
+	//@Test
+	public void insertReply() {
+		LongStream.rangeClosed(33, 43).forEach(bno->{
+			boardRepo.findById(bno).ifPresentOrElse(board->{
+				List<FreeBoardReply> replyList = board.getReplies();
+				IntStream.rangeClosed(1, 5).forEach(i->{
+					FreeBoardReply reply = FreeBoardReply.builder().reply("댓글내용" + i + ":" + bno).replyer("댓글작성자" + i + ":" + bno).board(board).build();
+					replyList.add(reply);
+					boardRepo.save(board);
+				});
+			}, ()->{System.out.println("해당 Board없음");});
+		});
+	}
+	
+	//@Test
+	public void insertBoard() {
+		IntStream.rangeClosed(100, 110).forEach(j->{
+			FreeBoard board = FreeBoard.builder().title("board 제목" + j).writer("board 작성자" + j).content("board 내용" + j).build();
+			boardRepo.save(board);
+		});
+	}
+}

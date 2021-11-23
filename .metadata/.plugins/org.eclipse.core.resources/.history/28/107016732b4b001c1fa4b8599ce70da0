@@ -1,0 +1,27 @@
+package com.kosta.vo2;
+
+import java.sql.Timestamp;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter @Setter @ToString //양방향일때 무한룹에 빠질 수 있음. tostring주의. data에서는 수정불가
+@Entity @Table(name = "tbl_free_replies")
+@EqualsAndHashCode(of="rno") //댓글번호가 같은걸 같은거로 여긴다.
+public class FreeBoardReply {
+
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	Long rno;
+	String reply;
+	String replyer;
+	Timestamp regdate;
+	Timestamp updatedate;
+}

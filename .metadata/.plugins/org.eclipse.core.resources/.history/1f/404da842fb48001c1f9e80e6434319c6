@@ -1,0 +1,19 @@
+package com.kosta.vo2;
+
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name = "tbl_pdsboard")
+@EqualsAndHashCode(of = "pid")
+public class PDSBoard {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long pid;
+	private String pname;
+	private String pwriter;
+
+//@OneToMany(cascade = CascadeType.ALL)
+//@JoinColumn(name="pdsno")
+//private List<PDSFile> files2;
+}

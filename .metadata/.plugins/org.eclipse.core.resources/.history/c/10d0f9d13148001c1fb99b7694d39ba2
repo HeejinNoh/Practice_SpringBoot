@@ -1,0 +1,22 @@
+package com.kosta.vo;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data @Builder
+@NoArgsConstructor @AllArgsConstructor
+@Entity
+@Table(name="tbl_dept")
+public class DeptVO {
+
+	private int department_id;
+	private String department_name;
+	private int manager_id;
+	private int location_id;
+	
+}

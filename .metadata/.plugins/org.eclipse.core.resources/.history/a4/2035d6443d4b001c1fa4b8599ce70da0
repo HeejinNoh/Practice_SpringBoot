@@ -1,0 +1,9 @@
+package com.kosta.persistence;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.kosta.vo2.FreeBoardReply;
+
+public interface FreeBoardReplyRepository extends CrudRepository<FreeBoardReply, Long>{
+
+}

@@ -1,0 +1,19 @@
+package com.kosta.sbproject;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data //아래 3개 모두 포함한 어노테이션
+//@Getter
+//@Setter
+//@ToString
+public class CarVO {
+	String model;
+	int price;
+}

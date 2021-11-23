@@ -1,0 +1,39 @@
+package com.kosta;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+
+
+/**
+ * QPDSFile is a Querydsl query type for PDSFile
+ */
+@Generated("com.querydsl.codegen.EntitySerializer")
+public class QPDSFile extends EntityPathBase<PDSFile> {
+
+    private static final long serialVersionUID = 1276622748L;
+
+    public static final QPDSFile pDSFile = new QPDSFile("pDSFile");
+
+    public final NumberPath<Long> fno = createNumber("fno", Long.class);
+
+    public final StringPath pdsfilename = createString("pdsfilename");
+
+    public QPDSFile(String variable) {
+        super(PDSFile.class, forVariable(variable));
+    }
+
+    public QPDSFile(Path<? extends PDSFile> path) {
+        super(path.getType(), path.getMetadata());
+    }
+
+    public QPDSFile(PathMetadata metadata) {
+        super(PDSFile.class, metadata);
+    }
+
+}
+

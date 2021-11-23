@@ -1,0 +1,27 @@
+package com.kosta.vo;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data @Builder
+@NoArgsConstructor @AllArgsConstructor
+@Entity
+@Table(name="tbl_emp")
+public class EmployeeVO {
+	private int employee_id;
+	first_name;
+	last_name;
+	email;
+	phone_number;
+	hire_date;
+	job_id;
+	salary;
+	commission_pct;
+	manager_id;
+	department_id;
+}

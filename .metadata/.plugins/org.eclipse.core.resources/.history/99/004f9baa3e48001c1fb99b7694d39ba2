@@ -1,0 +1,40 @@
+package com.kosta.sbproject;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.kosta.sbproject.persistence.DeptRepositoy;
+
+@SpringBootTest
+public class DeptTest {
+
+	@Autowired
+	DeptRepositoy drepo;
+	
+	@Test
+	public void jpqlTestFindByDept() {
+		
+	}
+	
+	//@Test
+	public void findByDepartmentName() {
+		drepo.findByDepartmentName("Marketing2").ifPresent(dept->{
+			System.out.println(dept);
+		});
+	}
+	
+	//@Test
+	public void selectById() {
+		drepo.findById(20).ifPresent(dept->{
+			System.out.println(dept);
+		});
+	}
+	
+	//@Test
+	public void selectAll() {
+		drepo.findAll().forEach(dept->{
+			System.out.println(dept);
+		});
+	}
+}

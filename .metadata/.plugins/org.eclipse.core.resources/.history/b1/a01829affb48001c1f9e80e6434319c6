@@ -1,0 +1,30 @@
+package com.kosta.vo2;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name = "tbl_pdsboard")
+@EqualsAndHashCode(of = "pid") // 특정한 애만 같으면 같은거! 아니면 전체다 비교해서 같으면 같다고 인식!
+public class PDSBoard {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long pid;
+	private String pname;
+	private String pwriter;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pdsno")
+	private List<PDSFile> files2;
+}

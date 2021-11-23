@@ -1,0 +1,5 @@
+package com.kosta.sbproject.persistence;
+
+public interface MemberRepository {
+
+}
